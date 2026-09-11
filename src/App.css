@@ -29,13 +29,21 @@
 body {
   min-width: 320px;
   min-height: 100vh;
-  overflow: hidden;
   background-color: var(--bg-primary);
 }
 
 #root {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+  #root {
+    height: 100vh;
+  }
 }
 
 /* ===== Animations ===== */
@@ -133,12 +141,20 @@ body {
 .app-container {
   position: relative;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-y: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-primary);
+}
+
+/* Desktop: keep centered layout */
+@media (min-width: 768px) {
+  .app-container {
+    height: 100vh;
+    overflow: hidden;
+  }
 }
 
 /* ===== Dynamic Background ===== */
@@ -176,11 +192,11 @@ body {
   position: relative;
   z-index: 10;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   max-width: 480px;
-  padding: 16px 20px 24px;
+  padding: 16px 20px 40px;
   margin: 0 auto;
 }
 
@@ -192,6 +208,7 @@ body {
     padding: 40px;
     gap: 48px;
     align-items: center;
+    min-height: 100vh;
   }
 }
 
@@ -301,12 +318,11 @@ body {
 
 /* ===== Cover Art Section ===== */
 .cover-section {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 8px 0;
-  min-height: 0;
 }
 
 @media (min-width: 768px) {
@@ -314,6 +330,7 @@ body {
     flex: 1;
     max-width: 50%;
     padding: 0;
+    min-height: 100%;
   }
 }
 
@@ -372,6 +389,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  padding-bottom: 20px;
 }
 
 @media (min-width: 768px) {
@@ -380,6 +398,7 @@ body {
     max-width: 50%;
     justify-content: center;
     gap: 4px;
+    padding-bottom: 0;
   }
 }
 
